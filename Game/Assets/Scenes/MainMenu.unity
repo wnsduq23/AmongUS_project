@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2942,7 +2942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3018,7 +3018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5059,8 +5059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a68e757c9e34309b9379172c87adb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseControlButton: {fileID: 963074032}
-  KeyboardMouseControlButton: {fileID: 2001552213}
 --- !u!1 &1144820152
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,7 +5874,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 2990751375170294170, guid: a3dd96fec109443bdbb6a5c9d5792df3, type: 3}
+  playerPrefab: {fileID: 1319808401818708875, guid: bfc1012aaa9c648bc8d73ceab978e355, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
@@ -5900,7 +5898,7 @@ MonoBehaviour:
   minPlayers: 1
   roomPlayerPrefab: {fileID: 1574566758343961355, guid: 47113828829bc4fddab197cc259afb3a, type: 3}
   RoomScene: Assets/Scenes/Game Room.unity
-  GameplayScene: Assets/Scenes/Gameplay.unity
+  GameplayScene: Assets/Scenes/Game Play.unity
   _allPlayersReady: 0
   roomSlots: []
   clientIndex: 0
@@ -6750,7 +6748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -7456,7 +7454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8456,7 +8454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8532,7 +8530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8863,7 +8861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 65c7b51d194c642fc886125b958fadb2, type: 2}
+  m_Material: {fileID: 2100000, guid: 64eb4a4b801b9a24cb3d857e95b8d178, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9114,17 +9112,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2008884215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cae6a565b54e54d058bc3e7456e06f10, type: 3}
+  m_Script: {fileID: 11500000, guid: 59ecf3d6767077943b504a11e4fd7cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crewImgs:
   - {fileID: 1958623759}
-  - {fileID: 1932204031}
   - {fileID: 207020219}
+  - {fileID: 1932204031}
   - {fileID: 2003429998}
   - {fileID: 661229400}
-  - {fileID: 132379628}
   - {fileID: 527121503}
+  - {fileID: 132379628}
   - {fileID: 1614975577}
   - {fileID: 126874599}
   - {fileID: 1730968907}

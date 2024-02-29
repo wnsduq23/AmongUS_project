@@ -10,12 +10,18 @@ public class CharacterMover : NetworkBehaviour
 {
     public bool isMoveable;
 
-    private Animator animator;
+    protected Animator animator;
 
     [SyncVar]
     public float speed = 2f;
 
-    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private float characterSize = 0.5f;
+
+    [SerializeField]
+    private float cameraSize = 2.5f;
+
+    protected SpriteRenderer spriteRenderer;
 
     [SyncVar(hook = nameof(SetPlayerColor_Hook))]
     public EPlayerColor playerColor;
@@ -34,13 +40,13 @@ public class CharacterMover : NetworkBehaviour
     [SyncVar(hook = nameof(SetNickname_Hook))]
     public string nickname;
     [SerializeField]
-    private Text nicknameText;
+    protected Text nicknameText;
     public void SetNickname_Hook(string _, string value)
     {
         nicknameText.text = value;
 	}
 
-    private void Start()
+    public virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.material.SetColor("_PlayerColor", PlayerColor.GetColor(playerColor));
@@ -52,7 +58,7 @@ public class CharacterMover : NetworkBehaviour
             Camera cam = Camera.main;
             cam.transform.SetParent(transform);
             cam.transform.localPosition = new Vector3(0f, 0f, -10f);
-            cam.orthographicSize = 2.5f;
+            cam.orthographicSize = cameraSize;
         }
     }
 
@@ -69,8 +75,8 @@ public class CharacterMover : NetworkBehaviour
             if (PlayerSettings.controlType == EControlType.KeyboardMouse)
             {
                 Vector3 dir = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f), 1f);
-                if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-                else transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                if (dir.x < 0f) transform.localScale = new Vector3(-characterSize, characterSize, 0.5f);
+                else transform.localScale = new Vector3(characterSize, characterSize, 0.5f);
 
                 transform.position += dir * speed * Time.deltaTime;
 
@@ -85,8 +91,8 @@ public class CharacterMover : NetworkBehaviour
                     Vector3 dir = (Input.mousePosition - new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0f)).normalized;
                     transform.position += dir * speed * Time.deltaTime;
 
-                    if (dir.x < 0f) transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
-                    else transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                    if (dir.x < 0f) transform.localScale = new Vector3(-characterSize, characterSize, 0.5f);
+                    else transform.localScale = new Vector3(characterSize, characterSize, 0.5f);
 
                     isMove = dir.magnitude != 0f;
 

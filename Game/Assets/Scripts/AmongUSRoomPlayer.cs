@@ -33,7 +33,7 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
     [SyncVar]
     public string nickname;
 
-    public CharacterMover lobbyPlayerCharacter;
+    public CharacterMover myCharacter;
 
     private void Start()
     {
@@ -67,15 +67,15 @@ public class AmongUsRoomPlayer : NetworkRoomPlayer
     public void CmdSetNickname(string nick)
     {
         nickname = nick;
-        lobbyPlayerCharacter.nickname = nick;
+        myCharacter.nickname = nick;
 	}
-    /*[Command]
+    [Command]
     public void CmdSetPlayerColor(EPlayerColor color)
     {
         playerColor = color;
 
-        lobbyPlayerCharacter.playerColor = color;
-    }*/
+        myCharacter.playerColor = color;
+    }
 
     private void SpawnLobbyPlayerCharacter()
     {
