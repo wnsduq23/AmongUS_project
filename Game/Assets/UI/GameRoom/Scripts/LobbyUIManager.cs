@@ -74,7 +74,10 @@ public class LobbyUIManager : MonoBehaviour
 
         var players = FindObjectsOfType<AmongUsRoomPlayer>();
         //플레이어들을 준비상태로
-        foreach (var player in players) player.CmdChangeReadyState(true);
+        foreach (var player in players)
+		{
+            player.CmdChangeReadyState(true);
+		}
 
         //Scene 전환
         manager.ServerChangeScene(manager.GameplayScene);

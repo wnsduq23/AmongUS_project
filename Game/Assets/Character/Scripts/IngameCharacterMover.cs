@@ -30,7 +30,7 @@ public class IngameCharacterMover : CharacterMover
         if (hasAuthority && type == EPlayerType.Imposter)
         {
             IngameUIManager.Instance.KillButtonUI.Show(this);//this : 자신 캐릭터
-            //playerFinder.SetKillRange(GameSystem.Instance.killRange + 1f);
+            playerFinder.SetKillRange(GameSystem.Instance.killRange + 1f);
         }
     }
 
@@ -79,7 +79,7 @@ public class IngameCharacterMover : CharacterMover
         //내가임포스터이면서 다른플레이어가 임포스터이면
         if (playerType == EPlayerType.Imposter && type == EPlayerType.Imposter)
         {
-            //nicknameText.color = Color.red;
+            nicknameText.color = Color.red;
         }
     }
 
@@ -93,7 +93,7 @@ public class IngameCharacterMover : CharacterMover
             isMoveable = true;
 
             var myRoomPlayer = AmongUsRoomPlayer.MyRoomPlayer;
-            //myRoomPlayer.myCharacter = this;
+            myRoomPlayer.myCharacter = this;
             CmdSetPlayerCharacter(myRoomPlayer.nickname, myRoomPlayer.playerColor);
         }
 

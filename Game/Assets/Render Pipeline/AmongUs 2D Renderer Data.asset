@@ -26,7 +26,7 @@ MonoBehaviour:
   - name: Multiply
     maskTextureChannel: 0
     blendMode: 1
-  - name: Additive
+  - name: Light Map
     maskTextureChannel: 0
     blendMode: 0
   - name: Multiply with Mask

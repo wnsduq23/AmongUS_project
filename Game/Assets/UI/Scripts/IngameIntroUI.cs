@@ -29,10 +29,10 @@ public class IngameIntroUI : MonoBehaviour
     [SerializeField]
     private Color imposterColor;
 
-    [SerializeField]//¿ÀºêÁ§Æ® ¾Æ·¡UIµéÀ» ´Ù·ç´Â º¯¼ö
+    [SerializeField]//ì˜¤ë¸Œì íŠ¸ ì•„ë˜UIë“¤ì„ ë‹¤ë£¨ëŠ” ë³€ìˆ˜
     private CanvasGroup canvasGroup;
 
-    //ÀÎÆ®·Î ½ÃÄö½º º¸¿©ÁÖ´Â ÇÔ¼ö
+    //ì¸íŠ¸ë¡œ ì‹œí€€ìŠ¤ ë³´ì—¬ì£¼ëŠ” í•¨ìˆ˜
     public IEnumerator ShowIntroSequence()
     {
         shhh.SetActive(true);
@@ -43,11 +43,11 @@ public class IngameIntroUI : MonoBehaviour
         crewmate.SetActive(true);
     }
 
-    //ÀÎÆ®·Î Å¸ÀÔ ¼±Á¤ ÇÔ¼ö
+    //ì¸íŠ¸ë¡œ íƒ€ì… ì„ ì • í•¨ìˆ˜
     public void ShowPlayerType()
     {
         var players = GameSystem.Instance.GetPlayerList();
-        
+
         IngameCharacterMover myPlayer = null;
 
         foreach (var player in players)
@@ -61,17 +61,17 @@ public class IngameIntroUI : MonoBehaviour
 
         myCharacter.SetIntroCharacter(myPlayer.nickname, myPlayer.playerColor);
 
-        //ÀÚ½ÅÀÌ ÀÓÆ÷½ºÅÍ°í
+        //ìì‹ ì´ ì„í¬ìŠ¤í„°ê³ 
         if (myPlayer.playerType == EPlayerType.Imposter)
         {
-            playerType.text = "ÀÓÆ÷½ºÅÍ";
+            playerType.text = "ì„í¬ìŠ¤í„°";
             playerType.color = gradientImg.color = imposterColor;
 
             int i = 0;
 
             foreach (var player in players)
             {
-                //´Ù¸¥»ç¶÷ÀÌ ÀÓÆ÷½ºÅÍÀÌ¸é
+                //ë‹¤ë¥¸ì‚¬ëŒì´ ì„í¬ìŠ¤í„°ì´ë©´
                 if (!player.hasAuthority && player.playerType == EPlayerType.Imposter)
                 {
                     otherCharacters[i].SetIntroCharacter(player.nickname, player.playerColor);
@@ -81,16 +81,16 @@ public class IngameIntroUI : MonoBehaviour
             }
         }
 
-        else //ÀÚ½ÅÀÌ Å©·ç¿øÀÏ °æ¿ì
+        else //ìì‹ ì´ í¬ë£¨ì›ì¼ ê²½ìš°
         {
-            playerType.text = "Å©·ç¿ø";
+            playerType.text = "í¬ë£¨ì›";
             playerType.color = gradientImg.color = crewColor;
 
             int i = 0;
 
             foreach (var player in players)
             {
-                //ÀÚ½Å Á¦¿Ü 
+                //ìì‹  ì œì™¸ 
                 if (!player.hasAuthority)
                 {
                     otherCharacters[i].SetIntroCharacter(player.nickname, player.playerColor);
@@ -106,7 +106,7 @@ public class IngameIntroUI : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    //canvas°¡ Á¡Á¡ Áö¿öÁö´Â ÇÔ¼ö
+    //canvasê°€ ì ì  ì§€ì›Œì§€ëŠ” í•¨ìˆ˜
     private IEnumerator FadeOut()
     {
         float timer = 0f;

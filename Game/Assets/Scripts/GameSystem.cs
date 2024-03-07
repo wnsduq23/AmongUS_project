@@ -77,18 +77,16 @@ public class GameSystem : NetworkBehaviour
         }
 
         //List에서 배열형태로 ToArray
-        //AllocatePlayerToAroundTable(players.ToArray());
+        AllocatePlayerToAroundTable(players.ToArray());
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        //임시요
-        yield return StartCoroutine(IngameUIManager.Instance.IngameIntroUI.ShowIntroSequence());
-		/*RpcStartGame();
+		RpcStartGame();
 
         foreach (var player in players)
         {
             player.SetKillCooldown();
-        }*/
+        }
     }
 
    private void AllocatePlayerToAroundTable(IngameCharacterMover[] players)
@@ -272,7 +270,7 @@ public class GameSystem : NetworkBehaviour
         {
             RpcOpenEjectionUI(false, EPlayerColor.Black, false, remainImposter);
         }
-        //스캅수,2순위 보다 1순위표수가 많으면 1순위 추방
+        //스킵,2순위 보다 1순위표수가 많으면 1순위 추방
         else
         {
             bool isImposter = (players[0].playerType & EPlayerType.Imposter) == EPlayerType.Imposter;
@@ -282,11 +280,11 @@ public class GameSystem : NetworkBehaviour
         }
 
         //추방 후 시체 제거
-        /*var deadbodies = FindObjectsOfType<Deadbody>();
+        var deadbodies = FindObjectsOfType<Deadbody>();
         for (int i = 0; i < deadbodies.Length; i++)
         {
             Destroy(deadbodies[i].gameObject);
-        }*/
+        }
 
         //플레이어 테이블 배치
         AllocatePlayerToAroundTable(players);

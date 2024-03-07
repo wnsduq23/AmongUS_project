@@ -12,17 +12,17 @@ public class LeftWire : MonoBehaviour
     [SerializeField]
     private List<Image> mWireImages;
 
-    [SerializeField]//ºÒºû µé¾î¿Ã ÀÌ¹ÌÁö
+    [SerializeField]//ë¶ˆë¹› ë“¤ì–´ì˜¬ ì´ë¯¸ì§€
     private Image mLightImage;
 
-    [SerializeField]//¿¬°áµÈ ¿À¸¥ÂÊ ¼± º¯¼ö
+    [SerializeField]//ì—°ê²°ëœ ì˜¤ë¥¸ìª½ ì„  ë³€ìˆ˜
     private RightWire mConnectedWire;
 
     [SerializeField]
     private RectTransform mWireBody;
 
     private Canvas mGameCanvas;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class LeftWire : MonoBehaviour
         float distance = (Vector2.Distance(mWireBody.transform.position, targetPosition) - offset);
 
         mWireBody.localRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        //°ÔÀÓ ÇØ»óµµ¿¡ µû¶ó distance°¡ ´Ş¶óÁö¹Ç·Î Äµ¹ö½ºÅ©±âÀÇ ¿ª¼ö¸¦ °¡Á®¿Í °öÇÑ´Ù.
+        //ê²Œì„ í•´ìƒë„ì— ë”°ë¼ distanceê°€ ë‹¬ë¼ì§€ë¯€ë¡œ ìº”ë²„ìŠ¤í¬ê¸°ì˜ ì—­ìˆ˜ë¥¼ ê°€ì ¸ì™€ ê³±í•œë‹¤.
         mWireBody.sizeDelta = new Vector2(distance * (1 / mGameCanvas.transform.localScale.x), mWireBody.sizeDelta.y);
     }
 
@@ -79,7 +79,7 @@ public class LeftWire : MonoBehaviour
 
     public void ConnectWire(RightWire rightWire)
     {
-        //¿¬°áµÈ ¿À¸¥ÂÊ¿ÍÀÌ¾î°¡ ÀÖ°í && ¿¬°áµÈ ¿À¸¥ÂÊ¿ÍÀÌ¾î°¡ ´Ù¸¥¿À¸¥ÂÊ ¿ÍÀÌ¾î¿¡ ¿¬°áÇÏ¸é
+        //ì—°ê²°ëœ ì˜¤ë¥¸ìª½ì™€ì´ì–´ê°€ ìˆê³  && ì—°ê²°ëœ ì˜¤ë¥¸ìª½ì™€ì´ì–´ê°€ ë‹¤ë¥¸ì˜¤ë¥¸ìª½ ì™€ì´ì–´ì— ì—°ê²°í•˜ë©´
         if (mConnectedWire != null && mConnectedWire != rightWire)
         {
             mConnectedWire.DisconnectWire(this);
