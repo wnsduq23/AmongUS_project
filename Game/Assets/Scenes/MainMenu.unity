@@ -2889,7 +2889,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 477357884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7552cb661e7224d9d889a995cc479584, type: 3}
+  m_Script: {fileID: 11500000, guid: 65edbd43096b93e4fab622f044fab33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &527121501
@@ -4322,7 +4322,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055701122}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
         m_MethodName: SetControlMode
         m_Mode: 3
@@ -5056,9 +5056,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1055701119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a68e757c9e34309b9379172c87adb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8272296452a887c4c899068f1453312d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MouseControlButton: {fileID: 963074032}
+  KeyboardMouseControlButton: {fileID: 2001552213}
 --- !u!1 &1144820152
 GameObject:
   m_ObjectHideFlags: 0
@@ -5874,7 +5876,7 @@ MonoBehaviour:
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 1319808401818708875, guid: bfc1012aaa9c648bc8d73ceab978e355, type: 3}
+  playerPrefab: {fileID: 2509458997062794059, guid: bfc1012aaa9c648bc8d73ceab978e355, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs:
@@ -7393,7 +7395,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055701122}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -8355,7 +8357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 477357886}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
         m_MethodName: OnClickQuitButton
         m_Mode: 1
@@ -8762,7 +8764,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1055701122}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
         m_MethodName: SetControlMode
         m_Mode: 3

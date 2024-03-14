@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//ȸ�� ����
+//회의 상태
 public enum EMeetingState
 {
     None,
@@ -16,7 +16,7 @@ public class MeetingUI : MonoBehaviour
     [SerializeField]
     private GameObject playerPanelPrefab;
 
-    //Player Panel���� ��� Parent������Ʈ
+    //Player Panel들을 담는 Parent오브젝트
     [SerializeField]
     private Transform playerPanelsParent;
 
@@ -32,18 +32,18 @@ public class MeetingUI : MonoBehaviour
     [SerializeField]
     private Transform skipVoteParentTransform;
 
-    //�ð� ��� Text
+    //시간 출력 Text
     [SerializeField]
     private Text meetingTimeText;
 
     private EMeetingState meetingState;
 
-    //������ �÷��̾� �г��� ������ List
+    //생성된 플레이어 패널을 저장할 List
     private List<MeetingPlayerPanel> meetingPlayerPanels = new List<MeetingPlayerPanel>();
 
     public void Open()
     {
-        //�ڽ� �÷��̾� ���� �߰�
+        //자신 플레이어 먼저 추가
         var myCharacter = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
         var myPanel = Instantiate(playerPanelPrefab, playerPanelsParent).GetComponent<MeetingPlayerPanel>();
         myPanel.SetPlayer(myCharacter);
@@ -51,7 +51,7 @@ public class MeetingUI : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        //������ �÷��̾� �߰�
+        //나머지 플레이어 추가
         var players = FindObjectsOfType<IngameCharacterMover>();
 
         foreach (var player in players)
@@ -65,13 +65,13 @@ public class MeetingUI : MonoBehaviour
         }
     }
 
-    //���� ���� ���� �Լ�
+    //미팅 상태 변경 함수
     public void ChangeMeetingState(EMeetingState state)
     {
         meetingState = state;
     }
 
-    //�ٸ� �ǳ� ��Ȱ��ȭ �Լ�
+    //다른 판넬 비활성화 함수
     public void SelectPlayerPanel()
     {
         foreach (var panel in meetingPlayerPanels)
@@ -84,13 +84,13 @@ public class MeetingUI : MonoBehaviour
     {
         foreach (var panel in meetingPlayerPanels)
         {
-            //��ǥ���� �÷��̾��
+            //투표받은 플레이어면
             if (panel.targetPlayer.playerColor == ejectColor)
             {
                 panel.UpdatePanel(voterColor);
             }
 
-            //��ǥ�� �÷��̾��
+            //투표한 플레이어면
             if (panel.targetPlayer.playerColor == voterColor)
             {
                 panel.UpdateVoteSign(true);
@@ -100,7 +100,7 @@ public class MeetingUI : MonoBehaviour
 
     public void UpdateSkipVotePlayer(EPlayerColor skipVotePlayerColor)
     {
-        //skip�ϸ� sign ǥ��
+        //skip하면 sign 표시
         foreach (var panel in meetingPlayerPanels)
         {
             if (panel.targetPlayer.playerColor == skipVotePlayerColor)
@@ -114,23 +114,23 @@ public class MeetingUI : MonoBehaviour
         voter.material = Instantiate(voter.material);
         voter.material.SetColor("_PlayerColor", PlayerColor.GetColor(skipVotePlayerColor));
 
-        //��ư ��Ȱ��ȭ
-        //skipVoteButton.SetActive(false); (����)
+        //버튼 비활성화
+        //skipVoteButton.SetActive(false); (버그)
     }
 
     public void OnClickSkipVoteButton()
     {
         var myCharacter = AmongUsRoomPlayer.MyRoomPlayer.myCharacter as IngameCharacterMover;
 
-        //��ǥ�� ���߰� �����ʾ����� ��ŵ �����ϰ�
-        /*if (!myCharacter.isVote && !((myCharacter.playerType & EPlayerType.Ghost) == EPlayerType.Ghost))
+        //투표를 안했고 죽지않았으면 스킵 가능하게
+        if (!myCharacter.isVote && !((myCharacter.playerType & EPlayerType.Ghost) == EPlayerType.Ghost))
         {
             myCharacter.CmdSkipVote();
             SelectPlayerPanel();
-        }*/
+        }
     }
 
-    //��ǥ ���� ��
+    //투표 끝난 후
     public void CompleteVote()
     {
         foreach (var panel in meetingPlayerPanels)
@@ -145,15 +145,15 @@ public class MeetingUI : MonoBehaviour
 
     private void Update()
     {
-        //Mathf.Clamp(value, min, max) : value�� �������� ������ min��ȯ, max���� ũ�� max��ȯ 
+        //Mathf.Clamp(value, min, max) : value가 범위보다 작으면 min반환, max보다 크면 max반환 
         if (meetingState == EMeetingState.Meeting)
         {
-            meetingTimeText.text = string.Format("ȸ�ǽð� : {0}s", (int)Mathf.Clamp(GameSystem.Instance.remainTime, 0f, float.MaxValue));
+            meetingTimeText.text = string.Format("회의시간 : {0}s", (int)Mathf.Clamp(GameSystem.Instance.remainTime, 0f, float.MaxValue));
         }
 
         else if (meetingState == EMeetingState.Vote)
         {
-            meetingTimeText.text = string.Format("��ǥ�ð� : {0}s", (int)Mathf.Clamp(GameSystem.Instance.remainTime, 0f, float.MaxValue));
+            meetingTimeText.text = string.Format("투표시간 : {0}s", (int)Mathf.Clamp(GameSystem.Instance.remainTime, 0f, float.MaxValue));
         }
     }
 

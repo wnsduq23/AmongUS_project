@@ -23,7 +23,7 @@ public class EjectionUI : MonoBehaviour
         ejectionPlayer.material = Instantiate(ejectionPlayer.material);
     }
 
-    //(Ãß¹æ´çÇÒ ÇÃ·¹ÀÌ¾î°¡ ÀÖ´ÂÁö, Ãß¹æÀÚ »ö»ó, Ãß¹æÀÚ°¡ ÀÓÆ÷½ºÅÍÀÎÁö, ³²ÀºÀÓÆ÷½ºÅÍ ¼ö)
+    //(ì¶”ë°©ë‹¹í•  í”Œë ˆì´ì–´ê°€ ìˆëŠ”ì§€, ì¶”ë°©ì ìƒ‰ìƒ, ì¶”ë°©ìê°€ ì„í¬ìŠ¤í„°ì¸ì§€, ë‚¨ì€ì„í¬ìŠ¤í„° ìˆ˜)
     public void Open(bool isEjection, EPlayerColor ejectionPlayerColor, bool isImposter, int remainImposterCount)
     {
         string text = "";
@@ -41,12 +41,12 @@ public class EjectionUI : MonoBehaviour
                     break;
                 }
             }
-            text = string.Format("{0}Àº ÀÓÆ÷½ºÅÍ{1}\nÀÓÆ÷½ºÅÍ°¡ {2}¸í ³²¾Ò½À´Ï´Ù.",
-                ejectPlayer.nickname, isImposter ? "ÀÔ´Ï´Ù." : "°¡ ¾Æ´Ï¾ú½À´Ï´Ù.", remainImposterCount);
+            text = string.Format("{0}ì€ ì„í¬ìŠ¤í„°{1}\nì„í¬ìŠ¤í„°ê°€ {2}ëª… ë‚¨ì•˜ìŠµë‹ˆë‹¤.",
+                ejectPlayer.nickname, isImposter ? "ì…ë‹ˆë‹¤." : "ê°€ ì•„ë‹ˆì—ˆìŠµë‹ˆë‹¤.", remainImposterCount);
         }
         else
         {
-            text = string.Format("¾Æ¹«µµ ÅğÃâµÇÁö ¾Ê¾Ò½À´Ï´Ù.\nÀÓÆ÷½ºÅÍ°¡ {0}¸í ³²¾Ò½À´Ï´Ù.", remainImposterCount);
+            text = string.Format("ì•„ë¬´ë„ í‡´ì¶œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.\nì„í¬ìŠ¤í„°ê°€ {0}ëª… ë‚¨ì•˜ìŠµë‹ˆë‹¤.", remainImposterCount);
         }
 
         gameObject.SetActive(true);
@@ -63,12 +63,12 @@ public class EjectionUI : MonoBehaviour
 
         if (ejectionPlayerMover != null)
         {
-            //»ö ÁöÁ¤
+            //ìƒ‰ ì§€ì •
             ejectionPlayer.material.SetColor("_PlayerColor", PlayerColor.GetColor(ejectionPlayerMover.playerColor));
 
             float timer = 0f;
 
-            //Ãß¹æ ¸ğ¼Ç
+            //ì¶”ë°© ëª¨ì…˜
             while (timer <= 1f)
             {
                 yield return null;
@@ -80,7 +80,7 @@ public class EjectionUI : MonoBehaviour
             }
         }
 
-        //±ÛÀÚ ÇÏ³ª¾¿ Ãâ·ÂµÇ´Â ¸ğ¼Ç
+        //ê¸€ì í•˜ë‚˜ì”© ì¶œë ¥ë˜ëŠ” ëª¨ì…˜
         backText = text;
         while (backText.Length != 0)
         {
@@ -90,7 +90,7 @@ public class EjectionUI : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
-    
+
     public void Close()
     {
         gameObject.SetActive(false);
